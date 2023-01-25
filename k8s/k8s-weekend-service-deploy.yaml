@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: weekend-service
+  name: weekend-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weekend-service
+  template:
+    metadata:
+      labels:
+        app: weekend-service
+    spec:
+      containers:
+      - image: stasjdm/weekend-service:0.1.0
+        name: weekend-service
+        ports:
+          - containerPort: 8080

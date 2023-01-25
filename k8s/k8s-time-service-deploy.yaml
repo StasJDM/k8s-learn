@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: time-service
+  name: time-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: time-service
+  template:
+    metadata:
+      labels:
+        app: time-service
+    spec:
+      containers:
+        - image: stasjdm/time-service:0.1.0
+          name: time-service
+          ports:
+            - containerPort: 5678
